@@ -48,7 +48,7 @@ MonoBehaviour:
   SnakeHead: {fileID: 119727159740856283, guid: 288b90021c7328b4caeebdffa3ada3b3,
     type: 3}
   SnakeBody: {fileID: 0}
-  Snake: {fileID: 8666517589307312672}
+  SnakeComponent: {fileID: 0}
   BodyDiameter: 1
   SnakeLength: 0
   Segments: []

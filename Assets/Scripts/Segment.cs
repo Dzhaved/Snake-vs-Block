@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using TMPro;
+
 using UnityEngine;
 
 public class Segment : MonoBehaviour
@@ -8,6 +11,7 @@ public class Segment : MonoBehaviour
     public Segment Next;
     public Snake Snake;
     public int SegmentIndex;
+    public TextMeshPro NumberOfSegments;
 
     public bool isHead=false;
     public bool isTail=false;
@@ -59,7 +63,7 @@ public class Segment : MonoBehaviour
 
         if (isHead)
         {
-            //Vector3 LastPosition=transform.position;
+            NumberOfSegments.text = Snake.Segments.Count.ToString();
             return; 
         }
         SegmentMovement();
@@ -72,11 +76,8 @@ public class Segment : MonoBehaviour
         float distance = (Snake.Segments[0].transform.position - LastPosition).magnitude; //рассто€ние между текущей позицией головы и последней сохранЄнной
         if (distance > Snake.BodyDiameter) //≈сли предыдущий сегмент сдвинулс€ больше, чем на диаметр тела, то:
         {
-            Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от позиции пердыдущего сегмента до текущего
-            LastPosition = direction * Snake.BodyDiameter;//¬ставл€ем новое положение головы в начала списка
-
-            //_bodyPositions.RemoveAt(_bodyPositions.Count - 1); //удал€ем положение хвоста
-
+            Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от текущей позициии головы до последней сохранЄнной
+            LastPosition = direction * Snake.BodyDiameter;
             distance -= Snake.BodyDiameter;
         }
         

@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     public State CurrentState { get; set; }
     private void Awake()
     {
-        //_snakeMovement=Snake.GetComponent<SnakeMovement>();
+        
     }
 
     public void OnPlayerDied()

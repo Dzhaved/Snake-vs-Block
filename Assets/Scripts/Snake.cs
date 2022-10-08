@@ -16,26 +16,21 @@ public class Snake : MonoBehaviour
     public float BodyDiameter = 1;
     [Min(0)]
     public int SnakeLength;
-    //public GameObject Text;
-
     public List<Segment> Segments=new List<Segment>();
 
-    private Rigidbody _headRigibody;
 
-        // private TextMeshPro _snakeText;
+    private Rigidbody _headRigibody;
+    
 
     private void Awake()
     {       
-        for (int i = 0; i < SnakeLength; i++) AddSnakeBody();
-        
-        // Text.TryGetComponent(out TextMeshPro text);
-        // _snakeText = text;
-        // text.text = SnakeLength.ToString();
+        for (int i = 0; i < SnakeLength; i++) AddSnakeBody(); 
     }
 
     void Update()
-    {        
-        // _snakeText.text= SnakeLength.ToString(); 
+    {   
+        
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             
@@ -48,6 +43,7 @@ public class Snake : MonoBehaviour
             RemoveSnakeBody();
         }
     }
+   
 
     public void AddSnakeBody()
     {
@@ -69,7 +65,7 @@ public class Snake : MonoBehaviour
         }
         else
         {
-            GameObject body = Instantiate(SnakeHead, Segments[Segments.Count-1].transform.position, Quaternion.identity, transform); //new  Vector3(_snakeBody[SnakeLength-1].transform.position.x, _snakeBody[SnakeLength - 1].transform.position.y, _snakeBody[SnakeLength - 1].transform.position.z-1)
+            GameObject body = Instantiate(SnakeHead, Segments[Segments.Count-1].transform.position, Quaternion.identity, transform); 
             if (body.TryGetComponent(out Segment s))
             {
                 s.Snake = SnakeComponent;                
@@ -85,8 +81,11 @@ public class Snake : MonoBehaviour
 
         Destroy(Segments[0].gameObject);
         Segments.RemoveAt(0);
-        Rigidbody rb =Segments[0].gameObject.AddComponent<Rigidbody>();
-        rb=_headRigibody;
+         _headRigibody = Segments[0].gameObject.AddComponent<Rigidbody>();        
+        _headRigibody.mass = .001f;
+        _headRigibody.angularDrag = 0;
+        _headRigibody.freezeRotation = true;
+        _headRigibody.useGravity = false;
         foreach (Segment s in Segments)
         {
             s.SegmentIndex--;
