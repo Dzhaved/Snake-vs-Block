@@ -9,6 +9,7 @@ public class Segment : MonoBehaviour
     public Snake Snake;
     public int SegmentIndex;
     public TextMeshPro NumberOfSegments;
+    public Rigidbody HeadRigidbody;
 
     public bool isHead=false;
     public bool isTail=false;

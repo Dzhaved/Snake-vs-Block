@@ -370,6 +370,63 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &468016111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468016112}
+  - component: {fileID: 468016113}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468016112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468016111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 890867858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &468016113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468016111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1698f3d85325ef042b08623a1832c8b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlatformPrefabs:
+  - {fileID: 8628806766958584255, guid: 2ee75020896301b4c83d8c80dc56f03e, type: 3}
+  - {fileID: 710806200114566668, guid: 089c6dcf44a749c4eb0eeb7e676c8dea, type: 3}
+  StartPlatform: {fileID: 2147726191513418160, guid: 092b17c86444ab041b688623ebd1a2a9,
+    type: 3}
+  MinPlatforms: 10
+  MaxPlatforms: 10
+  PlatformsLength: 60
+  FinishPlatform: {fileID: 2147726191513418160, guid: 092b17c86444ab041b688623ebd1a2a9,
+    type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +610,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e446c3b6159910e4b952c3dc95c7a97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2138076274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
+    type: 3}
+  m_PrefabInstance: {fileID: 8666517590150466274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138076266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edf7bcc9e2a75c4d9dc3780fc354852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7917214395413569403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,13 +726,18 @@ PrefabInstance:
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: SnakeLength
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: BodyDiameter
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
+      propertyPath: SnakeMovement
+      value: 
+      objectReference: {fileID: 2138076274}
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: SnakeComponent
@@ -747,7 +821,7 @@ PrefabInstance:
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: Sensitivity
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
