@@ -20,7 +20,6 @@ public class Blocks : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.TryGetComponent(out Segment s))
         {
             if(!s.isHead)return;

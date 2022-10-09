@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 8107592802599608451}
   - component: {fileID: 5368983281068905064}
   - component: {fileID: 2390113893602973867}
-  - component: {fileID: -7293238621252326930}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -202,7 +201,7 @@ RectTransform:
   m_GameObject: {fileID: 5366379907014729335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 4, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8304772337018857654}
@@ -289,19 +288,6 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &-7293238621252326930
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366379907014729335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
