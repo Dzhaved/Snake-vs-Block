@@ -11,6 +11,7 @@ public class Snake : MonoBehaviour
     [Min(0)]
     public int SnakeLength;
     public List<Segment> Segments=new List<Segment>();
+    public SnakeMovement SnakeMovement;
 
 
     private Rigidbody _headRigibody;

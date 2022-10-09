@@ -69,15 +69,18 @@ public class Segment : MonoBehaviour
 
 
     private void SegmentMovement()
-    {        
-        float distance = (Snake.Segments[0].transform.position - LastPosition).magnitude; //рассто€ние между текущей позицией головы и последней сохранЄнной
-        if (distance > Snake.BodyDiameter) //≈сли предыдущий сегмент сдвинулс€ больше, чем на диаметр тела, то:
+    {
+        if (Snake.Segments.Count > 1)
         {
-            Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от текущей позициии головы до последней сохранЄнной
-            LastPosition = direction * Snake.BodyDiameter;
-            distance -= Snake.BodyDiameter;
+            float distance = (Snake.Segments[0].transform.position - LastPosition).magnitude; //рассто€ние между текущей позицией головы и последней сохранЄнной
+            if (distance > Snake.BodyDiameter) //≈сли предыдущий сегмент сдвинулс€ больше, чем на диаметр тела, то:
+            {
+                Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от текущей позициии головы до последней сохранЄнной
+                LastPosition = direction * Snake.BodyDiameter;
+                distance -= Snake.BodyDiameter;
+            }
+
+            transform.position = Vector3.Lerp(transform.position, Previous.transform.position, distance / Snake.BodyDiameter);
         }
-        
-        transform.position=Vector3.Lerp(transform.position,Previous.transform.position, distance/ Snake.BodyDiameter);
     }   
 }

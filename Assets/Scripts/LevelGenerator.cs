@@ -11,10 +11,10 @@ public class LevelGenerator : MonoBehaviour
     public int MinPlatforms;
     public int MaxPlatforms;
     public float PlatformsLength;
-    public Transform FinishPlatform;    
+    public GameObject FinishPlatform;    
     //public Game Game;
 
-    private float _extraCylinderScale = 1f;
+    //private float _extraCylinderScale = 1f;
 
     void Awake()
     {
@@ -33,8 +33,8 @@ public class LevelGenerator : MonoBehaviour
             //if (i > 0)
             //    platforms.transform.localRotation = Quaternion.Euler(0, RandomRange(random, 0, 360f), 0);
         }
-
-        FinishPlatform.localPosition = CalculatePlatformPosition(platformsCount);        
+        Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity ,transform);
+        
     }
 
     private int RandomRange(Random random, int min, int maxExclusive)
