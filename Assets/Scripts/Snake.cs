@@ -45,10 +45,10 @@ public class Snake : MonoBehaviour
         {
             GameObject body = Instantiate(SnakeHead, transform.position, Quaternion.identity, transform);
             HeadRigidbody = body.AddComponent<Rigidbody>();
-            HeadRigidbody.mass = 1f;
+            HeadRigidbody.mass = .001f;
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
-            // HeadRigidbody.useGravity=false;
+            HeadRigidbody.useGravity=false;
             if (body.TryGetComponent(out Segment s))
             {
                 s.Snake = SnakeComponent;
@@ -77,11 +77,11 @@ public class Snake : MonoBehaviour
         Destroy(Segments[0].gameObject);
         Segments.RemoveAt(0);
         HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
-        HeadRigidbody.mass = 1f;
+        HeadRigidbody.mass = .001f;
         HeadRigidbody.angularDrag = 0;
-        HeadRigidbody.freezeRotation = true;
+        HeadRigidbody.freezeRotation = true;        
+        HeadRigidbody.useGravity = false;
         Segments[0].HeadRigidbody = HeadRigidbody;
-        //HeadRigidbody.useGravity = false;
         foreach (Segment s in Segments)
         {
             s.SegmentIndex--;

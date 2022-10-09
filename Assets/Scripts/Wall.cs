@@ -10,9 +10,9 @@ public class Wall : MonoBehaviour
         if (other.TryGetComponent(out Segment s))
         {
 
-            if (s.transform.position.x < transform.position.x - 0.3f) s.Snake.SnakeMovement.LevelRightBorder = transform.position.x;
+            if (s.transform.position.x < transform.position.x - 0.3f) s.Snake.SnakeMovement.LevelRightBorder = transform.position.x - 0.3f;
 
-            if (s.transform.position.x > transform.position.x + 0.3f) s.Snake.SnakeMovement.LevelLeftBorder = transform.position.x;
+            if (s.transform.position.x > transform.position.x + 0.3f) s.Snake.SnakeMovement.LevelLeftBorder = transform.position.x + 0.3f;
         }
     }
 
