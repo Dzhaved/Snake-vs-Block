@@ -1,12 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 using TMPro;
-using TMPro.Examples;
 
 using UnityEngine;
-using UnityEngine.UI;
 
 using Random = System.Random;
 
