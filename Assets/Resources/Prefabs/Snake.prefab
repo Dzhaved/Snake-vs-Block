@@ -48,10 +48,12 @@ MonoBehaviour:
   SnakeHead: {fileID: 119727159740856283, guid: 288b90021c7328b4caeebdffa3ada3b3,
     type: 3}
   SnakeBody: {fileID: 0}
-  SnakeComponent: {fileID: 0}
-  BodyDiameter: 1
-  SnakeLength: 0
+  SnakeComponent: {fileID: 3068711323057646226}
+  BodyDiameter: 2
+  SnakeLength: 20
   Segments: []
+  SnakeMovement: {fileID: 8666517589307312679}
+  HeadRigidbody: {fileID: 0}
 --- !u!114 &8666517589307312679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edf7bcc9e2a75c4d9dc3780fc354852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Snake: {fileID: 0}
-  SnakeForwardSpeed: 5
+  Snake: {fileID: 3068711323057646226}
+  SnakeForwardSpeed: 20
   Sensitivity: 8
+  LevelLeftBorder: -9.5
+  LevelRightBorder: 9.5
