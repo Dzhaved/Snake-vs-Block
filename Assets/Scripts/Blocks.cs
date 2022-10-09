@@ -14,17 +14,13 @@ public class Blocks : MonoBehaviour
 {
     public int BlockHealth;
     public GameObject Block;
-    public GameObject Text;
-
-    private TextMeshPro _blockText;
+    public TextMeshPro BlockText;
 
     private void Awake()
-    {
-        Text.TryGetComponent(out TextMeshPro text);
-        _blockText = text;
+    {        
         Random random = new Random();
         BlockHealth = random.Next(1,5);
-        text.text=BlockHealth.ToString();
+        BlockText.text=BlockHealth.ToString();
 
     }
 
@@ -44,7 +40,7 @@ public class Blocks : MonoBehaviour
     }
     private void Update()
     {
-        _blockText.text = BlockHealth.ToString();
+        BlockText.text = BlockHealth.ToString();
         if (BlockHealth <= 0)
         {
            gameObject.SetActive(false);

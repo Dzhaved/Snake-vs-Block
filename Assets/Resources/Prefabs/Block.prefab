@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockHealth: 0
   Block: {fileID: 5366379907014729335}
-  Text: {fileID: 738729708617712740}
+  BlockText: {fileID: 3232075708087911630}
 --- !u!65 &2390113893602973867
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,16 +11,15 @@ public class Food : MonoBehaviour
 {
     public GameObject food;
     public int FoodValue;
-    public GameObject Text;
+    public TextMeshPro FoodText;
 
     
 
     private void Awake()
-    {
-        Text.TryGetComponent(out TextMeshPro foodText);        
+    {              
         Random random = new Random();
         FoodValue = random.Next(2, 5);
-        foodText.text = FoodValue.ToString();
+        FoodText.text = FoodValue.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
