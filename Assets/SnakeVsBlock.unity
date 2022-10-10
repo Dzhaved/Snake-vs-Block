@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1399589568}
     m_Modifications:
+    - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
+      propertyPath: BodyDiameter
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: m_RootOrder

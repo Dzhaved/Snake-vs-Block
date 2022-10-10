@@ -23,7 +23,7 @@ public class Segment : MonoBehaviour
 
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (SegmentIndex == 0)
         { 

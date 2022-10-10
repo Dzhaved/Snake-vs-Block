@@ -116,6 +116,7 @@ MonoBehaviour:
   Snake: {fileID: 0}
   SegmentIndex: 0
   NumberOfSegments: {fileID: 4138624547920045523}
+  HeadRigidbody: {fileID: 0}
   isHead: 0
   isTail: 0
 --- !u!1 &8801966842390303791
