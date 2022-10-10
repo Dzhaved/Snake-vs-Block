@@ -15,6 +15,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject FinishPlatform;
     public GameObject Food;
     public GameObject Block;
+    public GameObject Wall;
 
 
 
@@ -36,13 +37,13 @@ public class LevelGenerator : MonoBehaviour
             {
                 for (int j = 0; j < random.Next(0, 5); j++)
                 {
-                    int foodX=0;
-                    switch (random.Next(0,15))
+                    int foodX = 0;
+                    switch (random.Next(0, 15))
                     {
                         case 0:
                         case 5:
                         case 10:
-                            foodX =-8;
+                            foodX = -8;
                             break;
                         case 1:
                         case 6:
@@ -65,12 +66,12 @@ public class LevelGenerator : MonoBehaviour
                             foodX = 8;
                             break;
                     }
-                    
+
                     int foodZ = random.Next((int)platforms.transform.position.z + 1, (int)platforms.transform.position.z + 40);
                     Instantiate(Food, new Vector3(foodX, 1, foodZ), Quaternion.identity, transform);
-                    
+
                 }
-                for (int k = 0; k < random.Next(0, 2); k++)
+                for (int j = 0; j < random.Next(0, 2); j++)
                 {
                     int blockX = 0;
                     switch (random.Next(0, 15))
@@ -101,14 +102,41 @@ public class LevelGenerator : MonoBehaviour
                             blockX = 8;
                             break;
                     }
-                    int blockZ = random.Next((int)platforms.transform.position.z +8, (int)platforms.transform.position.z + 40);
+                    int blockZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
                     Instantiate(Block, new Vector3(blockX, 1, blockZ), Quaternion.identity, transform);
-                    
+                }
+                for (int j = 0; j < random.Next(0, 8); j++)
+                {
+                    int wallX = 0;
+                    switch (random.Next(0, 12))
+                    {
+                        case 0:
+                        case 4:
+                        case 8:
+                            wallX = -6;
+                            break;
+                        case 1:
+                        case 5:
+                        case 9:
+                            wallX = -2;
+                            break;
+                        case 2:
+                        case 6:
+                        case 10:
+                            wallX = 2;
+                            break;
+                        case 3:
+                        case 7:
+                        case 11:
+                            wallX = 6;
+                            break;                        
+                    }
+                    int wallZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
+                    Instantiate(Wall, new Vector3(wallX, 1, wallZ), Quaternion.identity, transform);
                 }
             }
+            Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity, transform);
         }
-        Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity ,transform);
-        
     }
     //private void FoodOrBlockRandomPositions(GameObject platforms,  Random random, GameObject foodOrBlock,int maxNumberOfobjects)
     //{
