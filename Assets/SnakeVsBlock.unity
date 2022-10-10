@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: BodyDiameter
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
@@ -197,8 +197,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1297054004}
+    - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
       propertyPath: Sensitivity
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
@@ -271,7 +276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlatformPrefabs:
   - {fileID: 710806200114566668, guid: 089c6dcf44a749c4eb0eeb7e676c8dea, type: 3}
-  - {fileID: 8628806766958584255, guid: 2ee75020896301b4c83d8c80dc56f03e, type: 3}
   StartPlatform: {fileID: 2147726191513418160, guid: 092b17c86444ab041b688623ebd1a2a9,
     type: 3}
   MinPlatforms: 10

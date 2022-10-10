@@ -2,6 +2,8 @@ using TMPro;
 
 using UnityEngine;
 
+using static UnityEditor.Experimental.GraphView.GraphView;
+
 using Random = System.Random;
 
 public class Blocks : MonoBehaviour
@@ -9,6 +11,7 @@ public class Blocks : MonoBehaviour
     public int BlockHealth;
     public GameObject Block;
     public TextMeshPro BlockText;
+    private Segment _segment;
 
     private void Awake()
     {        
@@ -18,19 +21,20 @@ public class Blocks : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.TryGetComponent(out Segment s))
-        {
-            if(!s.isHead)return;
-            Snake snake = s.Snake;
-            snake.RemoveSnakeBody();
-            //Destroy(snake.gameObject);
-            BlockHealth--;
-            snake.SnakeLength--;
-
-        }
+        if (!collision.collider.TryGetComponent(out Segment s)) return;
+        _segment = s;
+        Vector3 normal = -collision.GetContact(0).normal.normalized;
+        float dot = Vector3.Dot(normal, Vector3.right);        
+        if (Mathf.Abs( dot) > 0.01) return;
+        if (!s.isHead) return;
+        Snake snake = s.Snake;
+        snake.RemoveSnakeBody();        
+        BlockHealth--;
+        snake.SnakeLength--;
     }
+   
     private void Update()
     {
         BlockText.text = BlockHealth.ToString();
@@ -39,4 +43,5 @@ public class Blocks : MonoBehaviour
            gameObject.SetActive(false);
         }
     }
+    
 }
