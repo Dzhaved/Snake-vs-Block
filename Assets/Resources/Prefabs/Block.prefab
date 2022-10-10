@@ -276,7 +276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockHealth: 0
-  Block: {fileID: 5366379907014729335}
+  FoodCollider: {fileID: 6061567789809745748, guid: 963f4172e42f84544869aabbc714f064,
+    type: 3}
+  WallCollider: {fileID: 5068140302767239387, guid: c191cf098e6c78a45a8af662ba5a8d05,
+    type: 3}
   BlockText: {fileID: 3232075708087911630}
 --- !u!65 &2390113893602973867
 BoxCollider:

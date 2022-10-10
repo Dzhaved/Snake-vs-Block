@@ -21,16 +21,16 @@ public class Food : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.TryGetComponent(out Segment s))
+        if (!other.TryGetComponent(out Segment s)) gameObject.SetActive(false);
+        Snake snake=s.Snake;
+        for (int i = 0; i < FoodValue; i++)
         {
-            Snake snake=s.Snake;  
-            for (int i = 0; i < FoodValue; i++) 
-            { 
-                snake.AddSnakeBody();
-                snake.SnakeLength++;
-            }
-            gameObject.SetActive(false);
+            snake.AddSnakeBody();
+            snake.SnakeLength++;
         }
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
+        
     }
 
 }
