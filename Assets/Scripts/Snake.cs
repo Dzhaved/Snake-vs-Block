@@ -5,7 +5,7 @@ using UnityEngine;
 public class Snake : MonoBehaviour
 {
     public GameObject SnakeHead;
-    public GameObject SnakeBody;
+    //public GameObject SnakeBody;
     public Snake SnakeComponent;
     public float BodyDiameter = 1;
     [Min(0)]

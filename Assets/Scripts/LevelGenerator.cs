@@ -138,15 +138,7 @@ public class LevelGenerator : MonoBehaviour
             Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity, transform);
         }
     }
-    //private void FoodOrBlockRandomPositions(GameObject platforms,  Random random, GameObject foodOrBlock,int maxNumberOfobjects)
-    //{
-    //    for (int j = 0; j < random.Next(0, maxNumberOfobjects); j++)
-    //    {
-    //        int posX = random.Next(-8, 8);
-    //        int posZ = random.Next((int)platforms.transform.position.z + 4, (int)platforms.transform.position.z + 40);
-    //        Instantiate(foodOrBlock, new Vector3(posX, 1, posZ), Quaternion.identity, transform);
-    //    }
-    //}
+   
 
     private int RandomRange(Random random, int min, int maxExclusive)
     {
