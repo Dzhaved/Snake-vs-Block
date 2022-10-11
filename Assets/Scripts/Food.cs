@@ -22,7 +22,7 @@ public class Food : MonoBehaviour
     {
         
         if (!other.TryGetComponent(out Segment s)) Destroy(gameObject);//gameObject.SetActive(false);
-        Snake snake=s.Snake;
+        Snake snake = s.Snake;
         for (int i = 0; i < FoodValue; i++)
         {
             snake.AddSnakeBody();

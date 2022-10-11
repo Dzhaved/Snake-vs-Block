@@ -16,16 +16,15 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Food;
     public GameObject Block;
     public GameObject Wall;
-
+    public Game Game;
 
 
     void Awake()
     {
-        // int LevelIndex = Game.LevelIndex;
-        Random random = new Random();
-        //Random random = new Random(LevelIndex);
-        // int platformsCount = RandomRange(random, MinPlatforms, MaxPlatforms + 1);
-        int platformsCount=random.Next(MinPlatforms,MaxPlatforms);
+        int LevelIndex = Game.LevelIndex;        
+        Random random = new Random(LevelIndex);
+        int platformsCount = RandomRange(random, MinPlatforms, MaxPlatforms + 1);
+        //int platformsCount=random.Next(MinPlatforms,MaxPlatforms);
 
         for (int i = 0; i < platformsCount; i++)
         {

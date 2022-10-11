@@ -11,9 +11,10 @@ public class Snake : MonoBehaviour
     [Min(0)]
     public int SnakeLength;
     public List<Segment> Segments = new List<Segment>();
-
     public SnakeMovement SnakeMovement;
     public Rigidbody HeadRigidbody;
+    public Game Game;
+    public bool IsAlive=true;
 
 
     private void Awake()
@@ -23,6 +24,7 @@ public class Snake : MonoBehaviour
 
     void Update()
     {
+
 
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -38,6 +40,16 @@ public class Snake : MonoBehaviour
         }
     }
 
+    public void ReachFinish()
+    {
+        Game.OnPlayerReachedFinish();
+        HeadRigidbody.velocity = Vector3.zero;
+    }
+    public void Die()
+    {        
+        Game.OnPlayerDied();
+        HeadRigidbody.velocity = Vector3.zero;
+    }
 
     public void AddSnakeBody()
     {
@@ -73,21 +85,24 @@ public class Snake : MonoBehaviour
 
     public void RemoveSnakeBody()
     {
-
+        if (Segments.Count <=1) Die();
         Destroy(Segments[0].gameObject);
-        Segments.RemoveAt(0);
-        HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
-        HeadRigidbody.mass = .001f;
-        HeadRigidbody.angularDrag = 0;
-        HeadRigidbody.freezeRotation = true;        
-        HeadRigidbody.useGravity = false;
-        Segments[0].HeadRigidbody = HeadRigidbody;
-        foreach (Segment s in Segments)
+        if (Segments.Count > 1)
         {
-            s.SegmentIndex--;
+            Segments.RemoveAt(0);
+            HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
+            HeadRigidbody.mass = .001f;
+            HeadRigidbody.angularDrag = 0;
+            HeadRigidbody.freezeRotation = true;
+            HeadRigidbody.useGravity = false;
+            Segments[0].HeadRigidbody = HeadRigidbody;
         }
-
-
+            foreach (Segment s in Segments)
+            {
+                s.SegmentIndex--;
+            }
+        
+        
     }
 
 }

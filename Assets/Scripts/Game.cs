@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {    
-    private SnakeMovement _snakeMovement;
+    public SnakeMovement SnakeMovement;
     public enum State
     {
         Playing,
@@ -18,16 +18,15 @@ public class Game : MonoBehaviour
     public void OnPlayerDied()
     {
         if (CurrentState != State.Playing) return;
-        CurrentState = State.Loss;
-        _snakeMovement.enabled = false;
-        
+        CurrentState = State.Loss;        
+        SnakeMovement.enabled = false;        
     }
 
     public void OnPlayerReachedFinish()
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Won;
-        _snakeMovement.enabled = false;
+        SnakeMovement.enabled = false;
         LevelIndex++;
     }
     public int LevelIndex

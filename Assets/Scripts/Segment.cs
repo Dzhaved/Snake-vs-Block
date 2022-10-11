@@ -24,7 +24,7 @@ public class Segment : MonoBehaviour
 
 
     private void Update()
-    {
+    {        
         if (SegmentIndex == 0)
         { 
             if(Snake.Segments.Count == 1)

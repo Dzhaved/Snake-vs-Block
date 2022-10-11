@@ -36,7 +36,7 @@ public class SnakeMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (Mathf.Abs(_sideSpeed) >  4) _sideSpeed = 4 * Mathf.Sign(_sideSpeed);
-        Snake.Segments[0].HeadRigidbody.velocity = new Vector3(_sideSpeed*10, 0, SnakeForwardSpeed);
+        if (Snake.Segments[0]!=null) Snake.Segments[0].HeadRigidbody.velocity = new Vector3(_sideSpeed*10, 0, SnakeForwardSpeed);
 
         _sideSpeed = 0;       
     }
