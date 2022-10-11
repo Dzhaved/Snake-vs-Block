@@ -1,11 +1,19 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {    
     public SnakeMovement SnakeMovement;
     public Snake Snake;
+    public GameObject LoseScreen;
+    public GameObject WinScreen;
+    public GameObject Info;
+    public Text LevelInfoText;
+    public Text StatusText;
+    public Slider Slider;
+    //public int CurrentScore;
 
+    private GameObject _screen;
 
     public enum State
     {
@@ -16,10 +24,11 @@ public class Game : MonoBehaviour
     public State CurrentState { get; set; }
 
 
-    private void Awake()
+    private void Update()
     {
-        
+        Debug.Log(CurrentScore.ToString());
     }
+
 
     public void OnPlayerDied()
     {
@@ -27,8 +36,13 @@ public class Game : MonoBehaviour
         CurrentState = State.Loss;        
         SnakeMovement.enabled = false;
         Snake.SnakeLength = Snake.BaseSnakeLength+1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (BestScore < PreviousLevelScore + CurrentScore) BestScore = PreviousLevelScore + CurrentScore;
+        CurrentScore = 0;
+        _screen =LoseScreen;
+        Invoke("ScreenActivate", 1f);
+        Invoke("LoseScreenText", 1f);
         
+
     }
 
     public void OnPlayerReachedFinish()
@@ -37,7 +51,13 @@ public class Game : MonoBehaviour
         CurrentState = State.Won;
         SnakeMovement.enabled = false;
         LevelIndex++;
-        Invoke("ReloadeLevel", 2);
+        BestScore+=CurrentScore;
+        PreviousLevelScore=BestScore;
+        CurrentScore=0; 
+        _screen=WinScreen;
+        Invoke("ScreenActivate", 1f);
+        Invoke("WinScreenText", 1f);
+        
     }
     public int LevelIndex
     {
@@ -51,8 +71,55 @@ public class Game : MonoBehaviour
     }
     private const string LevelIndexKey = "LevelIndex";
 
-    public void ReloadeLevel()
+    private void ScreenActivate()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _screen.SetActive(true);        
+    }
+    private void LoseScreenText()
+    {
+        Info.SetActive(true);
+        StatusText.color = Color.black;
+        StatusText.text = "You Lose";
+        LevelInfoText.color = Color.yellow;
+        LevelInfoText.text = ((int)(Slider.value * 100)).ToString() + "% completed";
+    }
+    private void WinScreenText()
+    {
+        Info.SetActive(true);
+        StatusText.color = Color.white;
+        StatusText.text = "You Win";
+        LevelInfoText.color = Color.yellow;
+        LevelInfoText.text = "Level " + (LevelIndex - 1).ToString() + " passed";
+    }
+
+    private const string BestScoreKey = "BestScore";
+    public int BestScore
+    {
+        get => PlayerPrefs.GetInt(BestScoreKey, 0);
+        set
+        {
+            PlayerPrefs.SetInt(BestScoreKey, value);
+            PlayerPrefs.Save();
+        }
+    }
+    private const string CurrentScoreKey = "CurrentScore";
+    public int CurrentScore
+    {
+        get => PlayerPrefs.GetInt(CurrentScoreKey, 0);
+        set
+        {
+            PlayerPrefs.SetInt(CurrentScoreKey, value);
+            PlayerPrefs.Save();
+        }
+    }
+    private const string PreviousLevelScoreKey = "PreviousLevelScore";
+    public int PreviousLevelScore
+    {
+        get => PlayerPrefs.GetInt(PreviousLevelScoreKey, 0);
+        internal set
+        {
+            PlayerPrefs.SetInt(PreviousLevelScoreKey, value);
+            PlayerPrefs.Save();
+        }
     }
 }

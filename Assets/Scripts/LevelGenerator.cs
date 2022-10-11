@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using Random = System.Random;
@@ -12,7 +9,7 @@ public class LevelGenerator : MonoBehaviour
     public int MinPlatforms;
     public int MaxPlatforms;
     public float PlatformsLength;
-    public GameObject FinishPlatform;
+    public Transform FinishPlatform;
     public GameObject Food;
     public GameObject Block;
     public GameObject Wall;
@@ -24,7 +21,7 @@ public class LevelGenerator : MonoBehaviour
         int LevelIndex = Game.LevelIndex;        
         Random random = new Random(LevelIndex);
         int platformsCount = RandomRange(random, MinPlatforms, MaxPlatforms + 1);
-        //int platformsCount=random.Next(MinPlatforms,MaxPlatforms);
+        
 
         for (int i = 0; i < platformsCount; i++)
         {
@@ -34,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
             platforms.transform.localPosition = CalculatePlatformPosition(i);
             if (i != 0)
             {
-                for (int j = 0; j < random.Next(0, 5); j++)
+                for (int j = 0; j < random.Next(0, 8); j++)
                 {
                     int foodX = 0;
                     switch (random.Next(0, 15))
@@ -70,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
                     Instantiate(Food, new Vector3(foodX, 1, foodZ), Quaternion.identity, transform);
 
                 }
-                for (int j = 0; j < random.Next(0, 2); j++)
+                for (int j = 0; j < random.Next(0, 3); j++)
                 {
                     int blockX = 0;
                     switch (random.Next(0, 15))
@@ -134,7 +131,8 @@ public class LevelGenerator : MonoBehaviour
                     Instantiate(Wall, new Vector3(wallX, 1, wallZ), Quaternion.identity, transform);
                 }
             }
-            Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity, transform);
+            FinishPlatform.localPosition = CalculatePlatformPosition(platformsCount);
+            //Instantiate(FinishPlatform, CalculatePlatformPosition(platformsCount), Quaternion.identity, transform);
         }
     }
    

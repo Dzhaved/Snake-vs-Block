@@ -33,9 +33,7 @@ public class Snake : MonoBehaviour
 
     void Update()
     {
-
-
-
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
 

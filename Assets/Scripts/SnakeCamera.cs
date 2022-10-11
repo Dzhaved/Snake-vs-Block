@@ -7,7 +7,9 @@ public class SnakeCamera : MonoBehaviour
     
     void Update()
     {
-        if (Snake.Segments[0] == null) return; 
-        transform.position = new Vector3(0, 35, Snake.Segments[0].transform.position.z + 10);        
+        if (Snake.Segments[0] == null) return;
+        Vector3 targetPosition = new Vector3(0, 35, Snake.Segments[0].transform.position.z + 10);
+
+        transform.position = Vector3.MoveTowards(transform.position,targetPosition,Snake.SnakeMovement.SnakeForwardSpeed) ;        
     }
 }

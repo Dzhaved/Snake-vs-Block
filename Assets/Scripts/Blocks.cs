@@ -7,7 +7,10 @@ public class Blocks : MonoBehaviour
     public int BlockHealth;    
     public Collider FoodCollider;   
     public TextMeshPro BlockText;
+    
+
     private Segment _segment;
+
 
     private void Awake()
     {                
@@ -30,6 +33,7 @@ public class Blocks : MonoBehaviour
         snake.RemoveSnakeBody();        
         BlockHealth--;
         snake.SnakeLength--;
+        snake.Game.CurrentScore++;
     }
    
     private void Update()
