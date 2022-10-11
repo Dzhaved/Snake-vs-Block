@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {    
@@ -28,6 +29,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Won;
         SnakeMovement.enabled = false;
         LevelIndex++;
+        Invoke("ReloadeLevel", 2);
     }
     public int LevelIndex
     {
@@ -40,4 +42,9 @@ public class Game : MonoBehaviour
 
     }
     private const string LevelIndexKey = "LevelIndex";
+
+    public void ReloadeLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
