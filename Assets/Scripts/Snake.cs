@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    public GameObject SnakeHead;
-    //public GameObject SnakeBody;
+    public GameObject SnakeHead;   
     public Snake SnakeComponent;
     public float BodyDiameter = 1;
-    [Min(0)]
-    public int SnakeLength;
+    public int BaseSnakeLength;
+    [Min(0)]    
     public List<Segment> Segments = new List<Segment>();
     public SnakeMovement SnakeMovement;
     public Rigidbody HeadRigidbody;
     public Game Game;
     public bool IsAlive=true;
 
+    public int SnakeLength
+    {
+        get => PlayerPrefs.GetInt(SnakeLengthKey, BaseSnakeLength);
+         set
+        {
+            PlayerPrefs.SetInt(SnakeLengthKey, value);
+            PlayerPrefs.Save();
+        }
+    }
+    private const string SnakeLengthKey = "SnakeLength";
 
     private void Awake()
     {
@@ -96,12 +105,12 @@ public class Snake : MonoBehaviour
             HeadRigidbody.freezeRotation = true;
             HeadRigidbody.useGravity = false;
             Segments[0].HeadRigidbody = HeadRigidbody;
-        }
+
             foreach (Segment s in Segments)
             {
                 s.SegmentIndex--;
             }
-        
+        }
         
     }
 

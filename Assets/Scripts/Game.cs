@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {    
     public SnakeMovement SnakeMovement;
+    public Snake Snake;
+
+
     public enum State
     {
         Playing,
@@ -11,6 +14,8 @@ public class Game : MonoBehaviour
         Loss,
     }
     public State CurrentState { get; set; }
+
+
     private void Awake()
     {
         
@@ -20,7 +25,10 @@ public class Game : MonoBehaviour
     {
         if (CurrentState != State.Playing) return;
         CurrentState = State.Loss;        
-        SnakeMovement.enabled = false;        
+        SnakeMovement.enabled = false;
+        Snake.SnakeLength = Snake.BaseSnakeLength+1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
     public void OnPlayerReachedFinish()
