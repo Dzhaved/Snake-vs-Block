@@ -184,8 +184,8 @@ GameObject:
   - component: {fileID: 879168664803165033}
   - component: {fileID: 8107592802599608451}
   - component: {fileID: 5368983281068905064}
-  - component: {fileID: 2390113893602973867}
   - component: {fileID: 4808529254253668618}
+  - component: {fileID: 2390113893602973867}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -277,21 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockHealth: 0
-  FoodCollider: {fileID: 0}
   BlockText: {fileID: 3232075708087911630}
---- !u!65 &2390113893602973867
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366379907014729335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.025, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4808529254253668618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -308,3 +294,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &2390113893602973867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366379907014729335}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.025, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

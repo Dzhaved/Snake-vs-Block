@@ -4,8 +4,7 @@ using Random = System.Random;
 
 public class Blocks : MonoBehaviour
 {
-    public int BlockHealth;    
-    public Collider FoodCollider;   
+    public int BlockHealth;        
     public TextMeshPro BlockText;
     
 
@@ -23,8 +22,11 @@ public class Blocks : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {              
-        if (!collision.collider.TryGetComponent(out Segment s)) return;
+    {
+        if (!collision.collider.TryGetComponent(out Segment s)) 
+        {            
+            return; 
+        }
         _segment = s;
         Vector3 normal = -collision.GetContact(0).normal.normalized;
         float dot = Vector3.Dot(normal, Vector3.right);        
