@@ -3,7 +3,13 @@ guid: 1698f3d85325ef042b08623a1832c8b7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - StartPlatform: {fileID: 2147726191513418160, guid: 092b17c86444ab041b688623ebd1a2a9,
+      type: 3}
+  - FinishPlatform: {instanceID: 0}
+  - Block: {fileID: 3093966931148091784, guid: f58078e3689cc8847b9594cf4bfd1b1a, type: 3}
+  - Wall: {fileID: 8378859566215705040, guid: c191cf098e6c78a45a8af662ba5a8d05, type: 3}
+  - Game: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

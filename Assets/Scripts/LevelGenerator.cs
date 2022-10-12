@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 using Random = System.Random;
 
@@ -8,9 +12,10 @@ public class LevelGenerator : MonoBehaviour
     public GameObject StartPlatform;
     public int MinPlatforms;
     public int MaxPlatforms;
-    public float PlatformsLength;
+    public float PlatformLength;
     public Transform FinishPlatform;
     public GameObject[] Food;
+    public int MaxFood=5;
     public GameObject Block;
     public GameObject Wall;
     public Game Game;
@@ -24,14 +29,17 @@ public class LevelGenerator : MonoBehaviour
         
 
         for (int i = 0; i < platformsCount; i++)
-        {
+        {            
             int prefabIndex = RandomRange(random, 0, PlatformPrefabs.Length);
             GameObject platformPrefab = i == 0 ? StartPlatform : PlatformPrefabs[prefabIndex];
             GameObject platforms = Instantiate(platformPrefab, transform);
-            platforms.transform.localPosition = CalculatePlatformPosition(i);
+            platforms.transform.localPosition = CalculatePlatformPosition(i);            
             if (i != 0)
             {
-                for (int j = 0; j < random.Next(1, 6); j++)
+                int maxFood = random.Next(0, MaxFood);
+                int[] previousPositionX=new int[maxFood];
+                int[] previousPositionZ=new int[maxFood];
+                for (int j = 0; j <maxFood ; j++)
                 {
                     int foodX = 0;
                     switch (random.Next(0, 15))
@@ -63,11 +71,26 @@ public class LevelGenerator : MonoBehaviour
                             break;
                     }
 
-                    int foodZ = random.Next((int)platforms.transform.position.z + 1, (int)platforms.transform.position.z + 40);
+                    int foodZ = random.Next((int)platforms.transform.position.z, (int)platforms.transform.position.z +(int)PlatformLength-15);
                     int foodPrefab = random.Next(0, Food.Length);
+                    if (j != 0)
+                    {
+                        for(int k = 0; k < j; k++)
+                        {
+                            if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])==10)
+                            {
+                                foodZ= foodZ + 11;
+                            }
+                        }
+                        
+                    }
                     if(foodPrefab == 0) Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.Euler(0,90,0), transform);
                     else     Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.identity, transform);
+                    previousPositionX[j]=foodX;
+                    previousPositionZ[j] = foodZ;
                 }
+                /*************************Рандом блоков и стен*************************/
+
                 for (int j = 0; j < random.Next(0, 3); j++)
                 {
                     int blockX = 0;
@@ -131,9 +154,12 @@ public class LevelGenerator : MonoBehaviour
                     int wallZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
                     Instantiate(Wall, new Vector3(wallX, 1, wallZ), Quaternion.identity, transform);
                 }
+
+                /********************************************************************/
             }
-            FinishPlatform.localPosition = CalculatePlatformPosition(platformsCount);           
+
         }
+        FinishPlatform.localPosition = CalculatePlatformPosition(platformsCount);
     }
    
 
@@ -152,6 +178,6 @@ public class LevelGenerator : MonoBehaviour
 
     private Vector3 CalculatePlatformPosition(int platformIndex)
     {
-        return new Vector3(0,0 , PlatformsLength * platformIndex-20);
+        return new Vector3(0,0 , PlatformLength * platformIndex-20);
     }
 }

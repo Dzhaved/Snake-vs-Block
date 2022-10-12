@@ -1091,13 +1091,14 @@ MonoBehaviour:
     type: 3}
   MinPlatforms: 5
   MaxPlatforms: 10
-  PlatformsLength: 60
+  PlatformLength: 60
   FinishPlatform: {fileID: 652642069}
   Food:
   - {fileID: 2721682210606270864, guid: f32e9a28aea8d2942bc23813e9399bcb, type: 3}
   - {fileID: 618675992102664787, guid: 516480f3a5a27b54a903accfd859d265, type: 3}
   - {fileID: 1196699999363029025, guid: 6f1ba59c6dfec8c4db5c1bcf739ea72d, type: 3}
   - {fileID: 9212343022003486019, guid: d1196367909300044aaa9f9bd7c2ff39, type: 3}
+  MaxFood: 5
   Block: {fileID: 3093966931148091784, guid: f58078e3689cc8847b9594cf4bfd1b1a, type: 3}
   Wall: {fileID: 8378859566215705040, guid: c191cf098e6c78a45a8af662ba5a8d05, type: 3}
   Game: {fileID: 1399589569}
