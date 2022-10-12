@@ -11,7 +11,8 @@ public class Game : MonoBehaviour
     public Text LevelInfoText;
     public Text StatusText;
     public Slider Slider;
-    //public int CurrentScore;
+    public GameObject[] BestScoreUI;
+    public Text BestScoreText;
 
     private GameObject _screen;
 
@@ -72,7 +73,7 @@ public class Game : MonoBehaviour
     }
     private void LoseScreenText()
     {
-        Info.SetActive(true);
+        OnScreenInfo();
         StatusText.color = Color.black;
         StatusText.text = "You Lose";
         LevelInfoText.color = Color.yellow;
@@ -80,11 +81,19 @@ public class Game : MonoBehaviour
     }
     private void WinScreenText()
     {
-        Info.SetActive(true);
+        OnScreenInfo();
         StatusText.color = Color.white;
         StatusText.text = "You Win";
         LevelInfoText.color = Color.yellow;
         LevelInfoText.text = "Level " + (LevelIndex - 1).ToString() + " passed";
+    }
+
+    private void OnScreenInfo()
+    {
+        Info.SetActive(true);
+        BestScoreUI[0].SetActive(false);
+        BestScoreText.text = BestScore.ToString();
+        BestScoreUI[1].SetActive(true);
     }
 
     private const string BestScoreKey = "BestScore";
@@ -107,14 +116,5 @@ public class Game : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-    //private const string PreviousLevelScoreKey = "PreviousLevelScore";
-    //public int PreviousLevelScore
-    //{
-    //    get => PlayerPrefs.GetInt(PreviousLevelScoreKey, 0);
-    //    internal set
-    //    {
-    //        PlayerPrefs.SetInt(PreviousLevelScoreKey, value);
-    //        PlayerPrefs.Save();
-    //    }
-    //}
+  
 }

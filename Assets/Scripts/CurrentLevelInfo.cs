@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Info : MonoBehaviour
+public class CurrentLevelInfo : MonoBehaviour
 {
     public Text CurrentLevelText;
     public Text NextLevelText;
