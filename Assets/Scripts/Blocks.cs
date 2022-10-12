@@ -15,14 +15,15 @@ public class Blocks : MonoBehaviour
     private void Awake()
     {                
         Random random = new Random();
-        BlockHealth = random.Next(1,5);
+        
+        if(random.Next(0, 100)<40)    BlockHealth = random.Next(1,5);//лёгкий блок
+        else BlockHealth = random.Next(6, 25);//тяжёлый блок
         BlockText.text=BlockHealth.ToString();
        
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider == FoodCollider) gameObject.SetActive(false);        
+    {              
         if (!collision.collider.TryGetComponent(out Segment s)) return;
         _segment = s;
         Vector3 normal = -collision.GetContact(0).normal.normalized;
@@ -30,10 +31,11 @@ public class Blocks : MonoBehaviour
         if (Mathf.Abs( dot) > 0.01) return;
         if (!s.isHead) return;
         Snake snake = s.Snake;
-        snake.RemoveSnakeBody();        
-        BlockHealth--;
-        snake.SnakeLength--;
         snake.Game.CurrentScore++;
+        if(snake.Game.BestScore < snake.Game.CurrentScore) snake.Game.BestScore++;
+        snake.SnakeLength--;
+        snake.RemoveSnakeBody();        
+        BlockHealth--;              
     }
    
     private void Update()
@@ -41,8 +43,7 @@ public class Blocks : MonoBehaviour
         BlockText.text = BlockHealth.ToString();
         if (BlockHealth <= 0)
         {
-            Destroy(gameObject);
-            //gameObject.SetActive(false);
+            Destroy(gameObject);            
         }
     }
     

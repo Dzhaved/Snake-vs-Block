@@ -12,8 +12,7 @@ public class Snake : MonoBehaviour
     public List<Segment> Segments = new List<Segment>();
     public SnakeMovement SnakeMovement;
     public Rigidbody HeadRigidbody;
-    public Game Game;
-    public bool IsAlive=true;
+    public Game Game;    
 
     public int SnakeLength
     {
@@ -50,7 +49,8 @@ public class Snake : MonoBehaviour
     public void ReachFinish()
     {
         Game.OnPlayerReachedFinish();
-        HeadRigidbody.velocity = Vector3.zero;
+        HeadRigidbody.velocity = new Vector3(0,0,SnakeMovement.SnakeForwardSpeed);
+        Invoke("SnakeStrop", 2);
     }
     public void Die()
     {        
@@ -64,7 +64,7 @@ public class Snake : MonoBehaviour
         {
             GameObject body = Instantiate(SnakeHead, transform.position, Quaternion.identity, transform);
             HeadRigidbody = body.AddComponent<Rigidbody>();
-            HeadRigidbody.mass = .001f;
+            HeadRigidbody.mass = 1f;
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
             HeadRigidbody.useGravity=false;
@@ -98,7 +98,7 @@ public class Snake : MonoBehaviour
         {
             Segments.RemoveAt(0);
             HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
-            HeadRigidbody.mass = .001f;
+            HeadRigidbody.mass = 1f;
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
             HeadRigidbody.useGravity = false;
@@ -110,6 +110,11 @@ public class Snake : MonoBehaviour
             }
         }
         
+    }
+
+    private void SnakeStrop()
+    {
+        HeadRigidbody.velocity = Vector3.zero;
     }
 
 }

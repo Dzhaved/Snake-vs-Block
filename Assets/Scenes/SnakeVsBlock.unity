@@ -686,13 +686,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312672, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
@@ -903,7 +918,11 @@ MonoBehaviour:
   MaxPlatforms: 10
   PlatformsLength: 60
   FinishPlatform: {fileID: 652642069}
-  Food: {fileID: 3375601611552957781, guid: 963f4172e42f84544869aabbc714f064, type: 3}
+  Food:
+  - {fileID: 2721682210606270864, guid: f32e9a28aea8d2942bc23813e9399bcb, type: 3}
+  - {fileID: 618675992102664787, guid: 516480f3a5a27b54a903accfd859d265, type: 3}
+  - {fileID: 1196699999363029025, guid: 6f1ba59c6dfec8c4db5c1bcf739ea72d, type: 3}
+  - {fileID: 9212343022003486019, guid: d1196367909300044aaa9f9bd7c2ff39, type: 3}
   Block: {fileID: 5366379907014729335, guid: 72e27ebcc3d816f4784146145fda01da, type: 3}
   Wall: {fileID: 8378859566215705040, guid: c191cf098e6c78a45a8af662ba5a8d05, type: 3}
   Game: {fileID: 1399589569}
@@ -1493,14 +1512,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297054002}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 35, z: -10}
+  m_LocalRotation: {x: 0.618843, y: -0, z: -0, w: 0.7855147}
+  m_LocalPosition: {x: 0, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.463, y: 0, z: 0}
 --- !u!114 &1297054006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcf86288d5e25840b30c5ccb4709a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Snake: {fileID: 526567984}
+  Game: {fileID: 1399589569}
 --- !u!1 &1399589567
 GameObject:
   m_ObjectHideFlags: 0

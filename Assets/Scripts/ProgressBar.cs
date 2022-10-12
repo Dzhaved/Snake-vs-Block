@@ -23,8 +23,7 @@ public class ProgressBar : MonoBehaviour
     private void Update()
     {
         if(Snake.HeadRigidbody==null)return;        
-        _maximumReachedY = Mathf.Max(_maximumReachedY, Snake.HeadRigidbody.position.z);
-        Debug.Log(_maximumReachedY.ToString()); 
+        _maximumReachedY = Mathf.Max(_maximumReachedY, Snake.HeadRigidbody.position.z);        
         float finishZ = FinishPlatform.transform.position.z;        
         float t = Mathf.InverseLerp(_startY, finishZ + _acceptableFinishPlayerDistance, _maximumReachedY);
         Slider.value = t;

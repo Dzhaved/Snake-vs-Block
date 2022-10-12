@@ -11,8 +11,7 @@ public class Segment : MonoBehaviour
     public TextMeshPro NumberOfSegments;
     public Rigidbody HeadRigidbody;
 
-    public bool isHead=false;
-    public bool isTail=false;
+    public bool isHead=false;    
 
     private Vector3 LastPosition;
 
@@ -53,11 +52,7 @@ public class Segment : MonoBehaviour
         if (Previous==null)
         {
             isHead= true;
-        }
-        if (Next == null)
-        {
-            isTail= true;
-        }
+        }        
 
         if (isHead)
         {
@@ -75,7 +70,7 @@ public class Segment : MonoBehaviour
         if (distance > Snake.BodyDiameter) //Если предыдущий сегмент сдвинулся больше, чем на диаметр тела, то:
         {
             Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от текущей позициии головы до последней сохранённой
-            LastPosition = direction * Snake.BodyDiameter;
+            LastPosition += direction * Snake.BodyDiameter;
             distance -= Snake.BodyDiameter;
         }
         

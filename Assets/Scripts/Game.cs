@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(CurrentScore.ToString());
+        
     }
 
 
@@ -35,13 +35,11 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
         CurrentState = State.Loss;        
         SnakeMovement.enabled = false;
-        Snake.SnakeLength = Snake.BaseSnakeLength+1;
-        if (BestScore < PreviousLevelScore + CurrentScore) BestScore = PreviousLevelScore + CurrentScore;
-        CurrentScore = 0;
+        Snake.SnakeLength = Snake.BaseSnakeLength;       
         _screen =LoseScreen;
         Invoke("ScreenActivate", 1f);
         Invoke("LoseScreenText", 1f);
-        
+        CurrentScore = 0;
 
     }
 
@@ -50,10 +48,7 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
         CurrentState = State.Won;
         SnakeMovement.enabled = false;
-        LevelIndex++;
-        BestScore+=CurrentScore;
-        PreviousLevelScore=BestScore;
-        CurrentScore=0; 
+        LevelIndex++;           
         _screen=WinScreen;
         Invoke("ScreenActivate", 1f);
         Invoke("WinScreenText", 1f);
@@ -112,14 +107,14 @@ public class Game : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-    private const string PreviousLevelScoreKey = "PreviousLevelScore";
-    public int PreviousLevelScore
-    {
-        get => PlayerPrefs.GetInt(PreviousLevelScoreKey, 0);
-        internal set
-        {
-            PlayerPrefs.SetInt(PreviousLevelScoreKey, value);
-            PlayerPrefs.Save();
-        }
-    }
+    //private const string PreviousLevelScoreKey = "PreviousLevelScore";
+    //public int PreviousLevelScore
+    //{
+    //    get => PlayerPrefs.GetInt(PreviousLevelScoreKey, 0);
+    //    internal set
+    //    {
+    //        PlayerPrefs.SetInt(PreviousLevelScoreKey, value);
+    //        PlayerPrefs.Save();
+    //    }
+    //}
 }

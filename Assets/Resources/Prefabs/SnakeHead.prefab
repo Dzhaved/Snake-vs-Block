@@ -118,7 +118,6 @@ MonoBehaviour:
   NumberOfSegments: {fileID: 4138624547920045523}
   HeadRigidbody: {fileID: 0}
   isHead: 0
-  isTail: 0
 --- !u!1 &8801966842390303791
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +245,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -282,7 +281,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.5644529, z: 0, w: 0.12451178}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

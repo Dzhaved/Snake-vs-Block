@@ -1,15 +1,15 @@
 using UnityEngine;
 
 public class SnakeCamera : MonoBehaviour
-{
-    public Snake Snake;
+{   
+    public Game Game;
     
     
     void Update()
     {
-        if (Snake.Segments[0] == null) return;
-        Vector3 targetPosition = new Vector3(0, 35, Snake.Segments[0].transform.position.z + 10);
-
-        transform.position = Vector3.MoveTowards(transform.position,targetPosition,Snake.SnakeMovement.SnakeForwardSpeed) ;        
+        if (Game.CurrentState!=0) return;
+        Vector3 targetPosition = new Vector3(0, 35, Game.Snake.Segments[0].transform.position.z );
+        transform.position = Vector3.MoveTowards(transform.position,targetPosition,Game.SnakeMovement.SnakeForwardSpeed) ;    
+        
     }
 }
