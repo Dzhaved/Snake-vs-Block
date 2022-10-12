@@ -5,7 +5,7 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     public Segment Previous;
-    public Segment Next;
+    //public Segment Next;
     public Snake Snake;
     public int SegmentIndex;
     public TextMeshPro NumberOfSegments;
@@ -25,28 +25,16 @@ public class Segment : MonoBehaviour
     private void Update()
     {        
         if (SegmentIndex == 0)
-        { 
-            if(Snake.Segments.Count == 1)
-            {
-                Previous = null;
-                Next = null;
-            }
-            else
-            {
-                Previous = null;
-                Next = Snake.Segments[SegmentIndex + 1];
-            }
-            
+        {            
+                Previous = null;    
         }
         else if (SegmentIndex == Snake.Segments.Count - 1)
         {
-            Previous = Snake.Segments[SegmentIndex - 1];
-            Next = null;
+            Previous = Snake.Segments[SegmentIndex - 1];           
         }
         else
         {
-            Previous = Snake.Segments[SegmentIndex - 1];
-            Next = Snake.Segments[SegmentIndex + 1];
+            Previous = Snake.Segments[SegmentIndex - 1];           
         }
 
         if (Previous==null)

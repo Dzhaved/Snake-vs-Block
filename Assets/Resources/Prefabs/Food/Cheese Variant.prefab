@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277180763157774037}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0.015}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.013, y: 0.23}
-  m_SizeDelta: {x: 0.7, y: 0.7}
+  m_AnchoredPosition: {x: -0.263, y: 0.23}
+  m_SizeDelta: {x: 0.7, y: 0.45153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4604084014230412987
 MeshRenderer:
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -189,15 +189,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47365cc78e5cfad41badc534e3d2b7e1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47365cc78e5cfad41badc534e3d2b7e1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47365cc78e5cfad41badc534e3d2b7e1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47365cc78e5cfad41badc534e3d2b7e1, type: 3}
       propertyPath: m_LocalPosition.x

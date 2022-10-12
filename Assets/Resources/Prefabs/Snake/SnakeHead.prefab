@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8690359303116576722}
   - component: {fileID: 6794693407315563405}
   - component: {fileID: 7737228923954551768}
-  - component: {fileID: 4684354536779235040}
   - component: {fileID: -2850065672235764719}
   m_Layer: 0
   m_Name: SnakeHead
@@ -86,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4684354536779235040
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119727159740856283}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2850065672235764719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Previous: {fileID: 0}
-  Next: {fileID: 0}
   Snake: {fileID: 0}
   SegmentIndex: 0
   NumberOfSegments: {fileID: 4138624547920045523}

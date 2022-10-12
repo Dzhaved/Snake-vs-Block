@@ -695,7 +695,7 @@ PrefabInstance:
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: BodyDiameter
-      value: 2
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3068711323057646226, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
@@ -2082,7 +2082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1609350306
 RectTransform:
   m_ObjectHideFlags: 0

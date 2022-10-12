@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class Snake : MonoBehaviour
@@ -30,22 +32,6 @@ public class Snake : MonoBehaviour
         for (int i = 0; i < SnakeLength; i++) AddSnakeBody();
     }
 
-    void Update()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-
-            AddSnakeBody();
-            SnakeLength++;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SnakeLength--;
-            RemoveSnakeBody();
-        }
-    }
-
     public void ReachFinish()
     {
         Game.OnPlayerReachedFinish();
@@ -60,48 +46,47 @@ public class Snake : MonoBehaviour
 
     public void AddSnakeBody()
     {
+        GameObject body;
         if (Segments.Count == 0)
         {
-            GameObject body = Instantiate(SnakeHead, transform.position, Quaternion.identity, transform);
+            body = Instantiate(SnakeHead, transform.position, Quaternion.identity, transform);
+            body.AddComponent<SphereCollider>();
             HeadRigidbody = body.AddComponent<Rigidbody>();
             HeadRigidbody.mass = 1f;
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
-            HeadRigidbody.useGravity=false;
-            if (body.TryGetComponent(out Segment s))
-            {
-                s.Snake = SnakeComponent;
-                s.SegmentIndex = Segments.Count;
-                Segments.Add(s);
-            }
-            Segments[0].HeadRigidbody = HeadRigidbody;
+            Segment s= body.GetComponent<Segment>();
+            s.Snake = SnakeComponent;
+            s.SegmentIndex = Segments.Count;
+            s.HeadRigidbody = HeadRigidbody;
+            Segments.Add(s);
+            
 
         }
         else
         {
-            GameObject body = Instantiate(SnakeHead, Segments[Segments.Count - 1].transform.position, Quaternion.identity, transform);
-            if (body.TryGetComponent(out Segment s))
-            {
-                s.Snake = SnakeComponent;
-                s.SegmentIndex = Segments.Count;
-                Segments.Add(s);
-            }
+             body = Instantiate(SnakeHead, Segments[Segments.Count - 1].transform.position, Quaternion.identity, transform);
+            Segment s = body.GetComponent<Segment>();
+            s.Snake = SnakeComponent;
+            s.SegmentIndex = Segments.Count;
+            Segments.Add(s);            
 
-        }
+        }        
     }
 
     public void RemoveSnakeBody()
     {
         if (Segments.Count <=1) Die();
-        Destroy(Segments[0].gameObject);
+        foreach(Segment s in Segments)
+            if (s.isHead) Destroy(s.gameObject);
+        
         if (Segments.Count > 1)
         {
             Segments.RemoveAt(0);
+            Segments[0].gameObject.AddComponent<SphereCollider>();
             HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
-            HeadRigidbody.mass = 1f;
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
-            HeadRigidbody.useGravity = false;
             Segments[0].HeadRigidbody = HeadRigidbody;
 
             foreach (Segment s in Segments)
