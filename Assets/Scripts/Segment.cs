@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-    public Segment Previous;
-    //public Segment Next;
+    public Segment Previous;    
     public Snake Snake;
     public int SegmentIndex;
     public TextMeshPro NumberOfSegments;
     public Rigidbody HeadRigidbody;
+    public bool IsHead=false;
+    public Material HeadMaterial;
+    public Material BodyMaterial;
 
-    public bool isHead=false;    
+    private Renderer _snakeBodyRenderer;
 
     private Vector3 LastPosition;
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
         LastPosition = Snake.Segments[0].transform.position;
+        UpdateMaterial();
     }
 
-
+    private void UpdateMaterial()
+    {
+        _snakeBodyRenderer = GetComponent<Renderer>();
+        _snakeBodyRenderer.sharedMaterial = IsHead ? HeadMaterial : BodyMaterial;
+    }
 
     private void Update()
     {        
@@ -39,13 +51,18 @@ public class Segment : MonoBehaviour
 
         if (Previous==null)
         {
-            isHead= true;
+            IsHead= true;
         }        
 
-        if (isHead)
+        if (IsHead)
         {
             NumberOfSegments.text = Snake.Segments.Count.ToString();
+            _snakeBodyRenderer.sharedMaterial= HeadMaterial;
             return; 
+        }
+        if (!IsHead)
+        {
+            _snakeBodyRenderer.sharedMaterial.SetInt("_SnakeLength",Snake.SnakeLength);
         }
         SegmentMovement();
         LastPosition = Snake.Segments[0].transform.position;

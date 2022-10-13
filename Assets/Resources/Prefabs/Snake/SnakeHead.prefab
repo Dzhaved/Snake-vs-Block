@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 119727159740856283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2825982832065272995}
@@ -102,7 +102,9 @@ MonoBehaviour:
   SegmentIndex: 0
   NumberOfSegments: {fileID: 4138624547920045523}
   HeadRigidbody: {fileID: 0}
-  isHead: 0
+  IsHead: 0
+  HeadMaterial: {fileID: 2100000, guid: b212c28fb6de108458cad2959c02f3d3, type: 2}
+  BodyMaterial: {fileID: 2100000, guid: bfa30698d2fbd1c4bb99d2515013af9b, type: 2}
 --- !u!1 &8801966842390303791
 GameObject:
   m_ObjectHideFlags: 0

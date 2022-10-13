@@ -23,7 +23,7 @@ public class Food : MonoBehaviour
 
         if (!other.TryGetComponent(out Segment s))
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
             return;
         }
         Snake snake = s.Snake;

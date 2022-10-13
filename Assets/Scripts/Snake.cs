@@ -36,7 +36,7 @@ public class Snake : MonoBehaviour
     {
         Game.OnPlayerReachedFinish();
         HeadRigidbody.velocity = new Vector3(0,0,SnakeMovement.SnakeForwardSpeed);
-        Invoke("SnakeStrop", 2);
+        Invoke("SnakeStop", 2);
     }
     public void Die()
     {        
@@ -59,6 +59,7 @@ public class Snake : MonoBehaviour
             s.Snake = SnakeComponent;
             s.SegmentIndex = Segments.Count;
             s.HeadRigidbody = HeadRigidbody;
+            s.IsHead = true;    
             Segments.Add(s);
             
 
@@ -78,7 +79,7 @@ public class Snake : MonoBehaviour
     {
         if (Segments.Count <=1) Die();
         foreach(Segment s in Segments)
-            if (s.isHead) Destroy(s.gameObject);
+            if (s.IsHead) Destroy(s.gameObject);
         
         if (Segments.Count > 1)
         {
@@ -97,7 +98,7 @@ public class Snake : MonoBehaviour
         
     }
 
-    private void SnakeStrop()
+    private void SnakeStop()
     {
         HeadRigidbody.velocity = Vector3.zero;
     }
