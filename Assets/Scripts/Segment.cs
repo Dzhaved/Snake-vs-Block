@@ -13,26 +13,25 @@ public class Segment : MonoBehaviour
     public Material HeadMaterial;
     public Material BodyMaterial;
 
-    private Renderer _snakeBodyRenderer;
+    internal Renderer _snakeBodyRenderer;
 
     private Vector3 LastPosition;
 
     private void Awake()
-    {
-        
+    {        
+        _snakeBodyRenderer = GetComponent<Renderer>();
+        if (!IsHead)
+        {
+            _snakeBodyRenderer.sharedMaterial = BodyMaterial;
+        }
     }
 
     private void Start()
     {
-        LastPosition = Snake.Segments[0].transform.position;
-        UpdateMaterial();
+        LastPosition = Snake.Segments[0].transform.position;        
     }
 
-    private void UpdateMaterial()
-    {
-        _snakeBodyRenderer = GetComponent<Renderer>();
-        _snakeBodyRenderer.sharedMaterial = IsHead ? HeadMaterial : BodyMaterial;
-    }
+   
 
     private void Update()
     {        
@@ -56,13 +55,12 @@ public class Segment : MonoBehaviour
 
         if (IsHead)
         {
-            NumberOfSegments.text = Snake.Segments.Count.ToString();
-            _snakeBodyRenderer.sharedMaterial= HeadMaterial;
+            NumberOfSegments.text = Snake.Segments.Count.ToString();            
             return; 
         }
         if (!IsHead)
         {
-            _snakeBodyRenderer.sharedMaterial.SetInt("_SnakeLength",Snake.SnakeLength);
+            _snakeBodyRenderer.sharedMaterial.SetInt("_SnakeLength", Snake.SnakeLength);
         }
         SegmentMovement();
         LastPosition = Snake.Segments[0].transform.position;

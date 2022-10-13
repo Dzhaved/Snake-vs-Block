@@ -58,10 +58,9 @@ public class Snake : MonoBehaviour
             Segment s= body.GetComponent<Segment>();
             s.Snake = SnakeComponent;
             s.SegmentIndex = Segments.Count;
-            s.HeadRigidbody = HeadRigidbody;
-            s.IsHead = true;    
+            s.HeadRigidbody = HeadRigidbody;                        
             Segments.Add(s);
-            
+            s._snakeBodyRenderer.sharedMaterial=s.HeadMaterial;           
 
         }
         else
@@ -85,6 +84,7 @@ public class Snake : MonoBehaviour
         {
             Segments.RemoveAt(0);
             Segments[0].gameObject.AddComponent<SphereCollider>();
+            Segments[0]._snakeBodyRenderer.sharedMaterial=Segments[0].HeadMaterial;
             HeadRigidbody = Segments[0].gameObject.AddComponent<Rigidbody>();
             HeadRigidbody.angularDrag = 0;
             HeadRigidbody.freezeRotation = true;
@@ -92,7 +92,7 @@ public class Snake : MonoBehaviour
 
             foreach (Segment s in Segments)
             {
-                s.SegmentIndex--;
+                s.SegmentIndex--;                
             }
         }
         
