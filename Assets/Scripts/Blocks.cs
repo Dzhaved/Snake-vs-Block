@@ -47,7 +47,7 @@ public class Blocks : MonoBehaviour
         Snake snake = s.Snake;
         snake.Game.CurrentScore++;
         if(snake.Game.BestScore < snake.Game.CurrentScore) snake.Game.BestScore++;
-        snake.SnakeLength--;
+        snake.SnakeLength--;        
         snake.RemoveSnakeBody();        
         BlockHealth--;              
     }

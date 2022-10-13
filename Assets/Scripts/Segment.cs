@@ -12,6 +12,7 @@ public class Segment : MonoBehaviour
     public bool IsHead=false;
     public Material HeadMaterial;
     public Material BodyMaterial;
+    public ParticleSystem SnakeBlow;
 
     internal Renderer _snakeBodyRenderer;
 

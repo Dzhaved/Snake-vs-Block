@@ -73,8 +73,15 @@ public class Snake : MonoBehaviour
 
         }        
     }
-
     public void RemoveSnakeBody()
+    {
+        foreach (Segment s in Segments)
+            if (s.IsHead) s.SnakeBlow.Play();
+        Invoke("RemoveBody", 0.07f);
+        
+    }
+
+    public void RemoveBody()
     {
         if (Segments.Count <=1) Die();
         foreach(Segment s in Segments)
