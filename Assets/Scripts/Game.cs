@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     public Slider Slider;
     public GameObject[] BestScoreUI;
     public Text BestScoreText;
+    public ParticleSystem WinEffect;
 
     private GameObject _screen;
 
@@ -50,7 +51,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Won;
         SnakeMovement.enabled = false;
         LevelIndex++;           
-        _screen=WinScreen;
+        _screen=WinScreen;        
         Invoke("ScreenActivate", 1f);
         Invoke("WinScreenText", 1f);
         
@@ -69,7 +70,8 @@ public class Game : MonoBehaviour
 
     private void ScreenActivate()
     {
-        _screen.SetActive(true);        
+        _screen.SetActive(true);
+        WinEffect.Play();
     }
     private void LoseScreenText()
     {
@@ -82,6 +84,7 @@ public class Game : MonoBehaviour
     private void WinScreenText()
     {
         OnScreenInfo();
+        
         StatusText.color = Color.white;
         StatusText.text = "You Win";
         LevelInfoText.color = Color.yellow;
