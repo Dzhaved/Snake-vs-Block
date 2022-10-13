@@ -18,7 +18,7 @@ public class Segment : MonoBehaviour
     private Vector3 LastPosition;
 
     private void Awake()
-    {        
+    {
         _snakeBodyRenderer = GetComponent<Renderer>();
         if (!IsHead)
         {
@@ -28,10 +28,8 @@ public class Segment : MonoBehaviour
 
     private void Start()
     {
-        LastPosition = Snake.Segments[0].transform.position;        
+        LastPosition = Snake.Segments[0].transform.position;
     }
-
-   
 
     private void Update()
     {        
