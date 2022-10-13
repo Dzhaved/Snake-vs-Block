@@ -20,7 +20,8 @@ public class Blocks : MonoBehaviour
     private void Start()
     {
         Random random = new Random();
-        BlockHealth = random.Next(1, 26);      
+        if(random.Next(0,100)<40) BlockHealth = random.Next(1, 6);
+        else    BlockHealth = random.Next(6, 26);      
         BlockText.text = BlockHealth.ToString();
         int i = (BlockHealth-1)/2;
         UpdateMaterial(BlockMaterial[i]);       

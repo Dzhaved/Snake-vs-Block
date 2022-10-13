@@ -56,7 +56,7 @@ public class Segment : MonoBehaviour
         {
             NumberOfSegments.text = Snake.Segments.Count.ToString();            
             return; 
-        }
+        }         
         if (!IsHead)
         {
             _snakeBodyRenderer.sharedMaterial.SetInt("_SnakeLength", Snake.SnakeLength);

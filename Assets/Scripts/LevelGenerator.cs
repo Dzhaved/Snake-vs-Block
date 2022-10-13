@@ -77,9 +77,9 @@ public class LevelGenerator : MonoBehaviour
                     {
                         for(int k = 0; k < j; k++)
                         {
-                            if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])==10)
+                            if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])<=10)
                             {
-                                foodZ= foodZ + 11;
+                                foodZ = foodZ + 11 * (int)Mathf.Sign(foodZ - previousPositionZ[k]);
                             }
                         }
                         
