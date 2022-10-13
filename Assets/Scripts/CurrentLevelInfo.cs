@@ -11,6 +11,7 @@ public class CurrentLevelInfo : MonoBehaviour
     private void Start()
     {       
         CurrentLevelText.text = (Game.LevelIndex).ToString();
-        NextLevelText.text = (Game.LevelIndex + 1).ToString();
+        if(Game.LevelIndex <5 )  NextLevelText.text = (Game.LevelIndex + 1).ToString();
+        else NextLevelText.text = "F";
     }
 }

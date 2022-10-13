@@ -24,12 +24,7 @@ public class Game : MonoBehaviour
         Loss,
     }
     public State CurrentState { get; set; }
-
-
-    private void Update()
-    {
-        
-    }
+       
 
 
     public void OnPlayerDied()
@@ -61,7 +56,8 @@ public class Game : MonoBehaviour
         get => PlayerPrefs.GetInt(LevelIndexKey, 1);
         private set
         {
-            PlayerPrefs.SetInt(LevelIndexKey, value);
+            
+            PlayerPrefs.SetInt(LevelIndexKey, value);            
             PlayerPrefs.Save();
         }
 
@@ -83,12 +79,13 @@ public class Game : MonoBehaviour
     }
     private void WinScreenText()
     {
-        OnScreenInfo();
-        
+        OnScreenInfo();        
         StatusText.color = Color.white;
         StatusText.text = "You Win";
         LevelInfoText.color = Color.yellow;
         LevelInfoText.text = "Level " + (LevelIndex - 1).ToString() + " passed";
+        if(LevelIndex>5)LevelIndex = 1;
+        
     }
 
     private void OnScreenInfo()
