@@ -5539,7 +5539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 123
+  m_Text: 
 --- !u!222 &361293121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5711,7 +5711,7 @@ PrefabInstance:
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: Sensitivity
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
