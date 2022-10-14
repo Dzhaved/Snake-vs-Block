@@ -20,22 +20,20 @@ public class Food : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.TryGetComponent(out Food f))
+        if (!other.TryGetComponent(out Segment s))
         {
             Destroy(gameObject);
             return;
-        }
-        if (other.TryGetComponent(out Segment s))
+        } 
+        Snake snake = s.Snake;
+        snake.CrunchAudio.Play();
+        for (int i = 0; i < FoodValue; i++)
         {
-            Snake snake = s.Snake;
-            for (int i = 0; i < FoodValue; i++)
-            {
                 snake.AddSnakeBody();
                 snake.SnakeLength++;
-            }
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
-
 }
+
+

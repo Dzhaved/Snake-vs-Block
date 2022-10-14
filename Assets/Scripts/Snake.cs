@@ -9,12 +9,15 @@ public class Snake : MonoBehaviour
     public GameObject SnakeHead;   
     public Snake SnakeComponent;
     public float BodyDiameter = 1;
-    public int BaseSnakeLength;
-    [Min(0)]    
+    public int BaseSnakeLength;     
     public List<Segment> Segments = new List<Segment>();
     public SnakeMovement SnakeMovement;
     public Rigidbody HeadRigidbody;
-    public Game Game;    
+    public Game Game;       
+    public AudioSource BodyBreakAudio;
+    public AudioSource CrunchAudio;
+
+
 
     public int SnakeLength
     {
@@ -31,6 +34,7 @@ public class Snake : MonoBehaviour
     {
         for (int i = 0; i < SnakeLength; i++) AddSnakeBody();
     }
+    
 
     public void ReachFinish()
     {
@@ -83,6 +87,7 @@ public class Snake : MonoBehaviour
 
     public void RemoveBody()
     {
+        BodyBreakAudio.Play();
         if (Segments.Count <=1) Die();
         foreach(Segment s in Segments)
             if (s.IsHead) Destroy(s.gameObject);

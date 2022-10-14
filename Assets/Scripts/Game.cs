@@ -14,8 +14,21 @@ public class Game : MonoBehaviour
     public GameObject[] BestScoreUI;
     public Text BestScoreText;
     public ParticleSystem WinEffect;
+    [Min(0)]
+    public float Volume;
 
     private GameObject _screen;
+    private AudioSource _backgroundAudio;
+
+    private void Awake()
+    {
+        _backgroundAudio = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        _backgroundAudio.volume = Volume;
+    }
 
     public enum State
     {

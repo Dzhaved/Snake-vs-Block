@@ -32,60 +32,48 @@ public class LevelGenerator : MonoBehaviour
             platforms.transform.localPosition = CalculatePlatformPosition(i);            
             if (i != 0)
             {
-                int maxFood = random.Next(0, MaxFood);
+                int maxFood = random.Next(0, MaxFood);                
                 int[] previousPositionX=new int[maxFood];
                 int[] previousPositionZ=new int[maxFood];
                 for (int j = 0; j <maxFood ; j++)
                 {
                     int foodX = 0;
-                    switch (random.Next(0, 15))
+                    int pos =random.Next(0, 100)%5;
+                    switch (pos)
                     {
-                        case 0:
-                        case 5:
-                        case 10:
+                        case 0:                        
                             foodX = -8;
                             break;
-                        case 1:
-                        case 6:
-                        case 11:
+                        case 1:                        
                             foodX = -4;
                             break;
                         case 2:
-                        case 7:
-                        case 12:
                             foodX = 0;
                             break;
                         case 3:
-                        case 8:
-                        case 13:
                             foodX = 4;
                             break;
                         case 4:
-                        case 9:
-                        case 14:
                             foodX = 8;
                             break;
-                    }
+                    }                   
 
                     int foodZ = random.Next((int)platforms.transform.position.z, (int)platforms.transform.position.z +(int)PlatformLength-15);
+                    for (int k = 0; k < j; k++)
+                    {
+                        if (foodX == previousPositionX[k] && Mathf.Abs(foodZ - previousPositionZ[k]) <=5)
+                        {
+                            foodZ  += 11 * (int)Mathf.Sign(foodZ - previousPositionZ[k]);
+                        }
+                    }
                     int foodPrefab = random.Next(0, Food.Length);
-                    //if (j != 0)
-                    //{
-                    //    for(int k = 0; k < j; k++)
-                    //    {
-                    //        if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])<=10)
-                    //        {
-                    //            foodZ = foodZ + 11 * (int)Mathf.Sign(foodZ - previousPositionZ[k]);
-                    //        }
-                    //    }
-                        
-                    //}
+
                     if(foodPrefab == 0) Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.Euler(0,90,0), transform);
                     else     Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.identity, transform);
-                    previousPositionX[j]=foodX;
-                    previousPositionZ[j] = foodZ;
+                    previousPositionZ[j]=foodZ;
+                    previousPositionX[j] = foodX;
                 }
-                /*************************Рандом блоков и стен*************************/
+                /*************************Была рандомная генерация блоков и стен*************************/
 
                 //for (int j = 0; j < random.Next(0, 3); j++)
                 //{

@@ -38,7 +38,8 @@ public class Blocks : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.collider.TryGetComponent(out Segment s)) 
-        {            
+        {  
+            //Destroy(gameObject);
             return; 
         }        
         Vector3 normal = -collision.GetContact(0).normal.normalized;
