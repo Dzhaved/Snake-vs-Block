@@ -27,7 +27,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        _backgroundAudio.volume = Volume;
+        _backgroundAudio.volume = Volume;       
     }
 
     public enum State
@@ -52,6 +52,8 @@ public class Game : MonoBehaviour
         CurrentScore = 0;
 
     }
+
+    
 
     public void OnPlayerReachedFinish()
     {

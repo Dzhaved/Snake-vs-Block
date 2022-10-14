@@ -8,7 +8,6 @@ public class ButtonScript : MonoBehaviour
 
     public void ReloadeLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Game.CurrentState=Game.State.Playing;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
 }
