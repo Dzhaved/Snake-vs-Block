@@ -12,6 +12,8 @@ public class Score : MonoBehaviour
     void Update()
     {
         BestScoreText.text = Game.BestScore.ToString();
+        if(Game.CurrentState==0)
         CurrentScoreText.text = Game.CurrentScore.ToString();
+        else CurrentScoreText.text = null;
     }
 }
