@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
 {
-    public Snake Snake; //змея
+    public Snake Snake;
     public Camera Camera;
-    public float SnakeForwardSpeed = 10;//скорость змеи
-    public float Sensitivity=1;//чувствительность    
+    public float SnakeForwardSpeed = 10;
+    public float Sensitivity=1; 
 
     private Vector3 _previousMousePosition;  
-    private float _sideSpeed; //скорость смещения
+    private float _sideSpeed;
 
     
 

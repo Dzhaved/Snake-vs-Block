@@ -68,10 +68,10 @@ public class Segment : MonoBehaviour
 
     private void SegmentMovement()
     {        
-        float distance = (Snake.Segments[0].transform.position - LastPosition).magnitude; //рассто€ние между текущей позицией головы и последней сохранЄнной
-        if (distance > Snake.BodyDiameter) //≈сли предыдущий сегмент сдвинулс€ больше, чем на диаметр тела, то:
+        float distance = (Snake.Segments[0].transform.position - LastPosition).magnitude; 
+        if (distance > Snake.BodyDiameter) 
         {
-            Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;//направление от текущей позициии головы до последней сохранЄнной
+            Vector3 direction = (Snake.Segments[0].transform.position - LastPosition).normalized;
             LastPosition += direction * Snake.BodyDiameter;
             distance -= Snake.BodyDiameter;
         }
