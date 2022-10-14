@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 using Random = System.Random;
 
@@ -73,17 +69,17 @@ public class LevelGenerator : MonoBehaviour
 
                     int foodZ = random.Next((int)platforms.transform.position.z, (int)platforms.transform.position.z +(int)PlatformLength-15);
                     int foodPrefab = random.Next(0, Food.Length);
-                    if (j != 0)
-                    {
-                        for(int k = 0; k < j; k++)
-                        {
-                            if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])<=10)
-                            {
-                                foodZ = foodZ + 11 * (int)Mathf.Sign(foodZ - previousPositionZ[k]);
-                            }
-                        }
+                    //if (j != 0)
+                    //{
+                    //    for(int k = 0; k < j; k++)
+                    //    {
+                    //        if (foodX == previousPositionX[k]&& Mathf.Abs(foodZ - previousPositionZ[k])<=10)
+                    //        {
+                    //            foodZ = foodZ + 11 * (int)Mathf.Sign(foodZ - previousPositionZ[k]);
+                    //        }
+                    //    }
                         
-                    }
+                    //}
                     if(foodPrefab == 0) Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.Euler(0,90,0), transform);
                     else     Instantiate(Food[foodPrefab], new Vector3(foodX, 0, foodZ), Quaternion.identity, transform);
                     previousPositionX[j]=foodX;
@@ -91,69 +87,69 @@ public class LevelGenerator : MonoBehaviour
                 }
                 /*************************Рандом блоков и стен*************************/
 
-                for (int j = 0; j < random.Next(0, 3); j++)
-                {
-                    int blockX = 0;
-                    switch (random.Next(0, 15))
-                    {
-                        case 0:
-                        case 5:
-                        case 10:
-                            blockX = -8;
-                            break;
-                        case 1:
-                        case 6:
-                        case 11:
-                            blockX = -4;
-                            break;
-                        case 2:
-                        case 7:
-                        case 12:
-                            blockX = 0;
-                            break;
-                        case 3:
-                        case 8:
-                        case 13:
-                            blockX = 4;
-                            break;
-                        case 4:
-                        case 9:
-                        case 14:
-                            blockX = 8;
-                            break;
-                    }
-                    int blockZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
-                    Instantiate(Block, new Vector3(blockX, 1, blockZ), Quaternion.identity, transform);
-                }
-                for (int j = 0; j < random.Next(0, 8); j++)
-                {
-                    int wallX = 0;
-                    switch (random.Next(0, 12))
-                    {
-                        case 0:
-                        case 4:
-                        case 8:
-                            wallX = -6;
-                            break;
-                        case 1:
-                        case 5:
-                        case 9:
-                            wallX = -2;
-                            break;
-                        case 2:
-                        case 6:
-                        case 10:
-                            wallX = 2;
-                            break;
-                        case 3:
-                        case 7:
-                        case 11:
-                            wallX = 6;
-                            break;                        
-                    }
-                    int wallZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
-                    Instantiate(Wall, new Vector3(wallX, 1, wallZ), Quaternion.identity, transform);
-                }
+                //for (int j = 0; j < random.Next(0, 3); j++)
+                //{
+                //    int blockX = 0;
+                //    switch (random.Next(0, 15))
+                //    {
+                //        case 0:
+                //        case 5:
+                //        case 10:
+                //            blockX = -8;
+                //            break;
+                //        case 1:
+                //        case 6:
+                //        case 11:
+                //            blockX = -4;
+                //            break;
+                //        case 2:
+                //        case 7:
+                //        case 12:
+                //            blockX = 0;
+                //            break;
+                //        case 3:
+                //        case 8:
+                //        case 13:
+                //            blockX = 4;
+                //            break;
+                //        case 4:
+                //        case 9:
+                //        case 14:
+                //            blockX = 8;
+                //            break;
+                //    }
+                //    int blockZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
+                //    Instantiate(Block, new Vector3(blockX, 1, blockZ), Quaternion.identity, transform);
+                //}
+                //for (int j = 0; j < random.Next(0, 8); j++)
+                //{
+                //    int wallX = 0;
+                //    switch (random.Next(0, 12))
+                //    {
+                //        case 0:
+                //        case 4:
+                //        case 8:
+                //            wallX = -6;
+                //            break;
+                //        case 1:
+                //        case 5:
+                //        case 9:
+                //            wallX = -2;
+                //            break;
+                //        case 2:
+                //        case 6:
+                //        case 10:
+                //            wallX = 2;
+                //            break;
+                //        case 3:
+                //        case 7:
+                //        case 11:
+                //            wallX = 6;
+                //            break;                        
+                //    }
+                //    int wallZ = random.Next((int)platforms.transform.position.z + 8, (int)platforms.transform.position.z + 40);
+                //    Instantiate(Wall, new Vector3(wallX, 1, wallZ), Quaternion.identity, transform);
+                //}
 
                 /********************************************************************/
             }

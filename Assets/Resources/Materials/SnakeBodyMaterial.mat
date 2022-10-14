@@ -50,6 +50,6 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SnakeLength: 18
+    - _SnakeLength: 30
     m_Colors: []
   m_BuildTextureStacks: []

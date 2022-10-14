@@ -55,8 +55,7 @@ public class Game : MonoBehaviour
     {
         get => PlayerPrefs.GetInt(LevelIndexKey, 1);
         private set
-        {
-            
+        {            
             PlayerPrefs.SetInt(LevelIndexKey, value);            
             PlayerPrefs.Save();
         }
@@ -67,7 +66,7 @@ public class Game : MonoBehaviour
     private void ScreenActivate()
     {
         _screen.SetActive(true);
-        WinEffect.Play();
+        
     }
     private void LoseScreenText()
     {
@@ -79,6 +78,7 @@ public class Game : MonoBehaviour
     }
     private void WinScreenText()
     {
+        WinEffect.Play();
         OnScreenInfo();        
         StatusText.color = Color.white;
         StatusText.text = "You Win";
