@@ -10,4 +10,8 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
+    public void CurrentScoreDefault()
+    {
+        Game.CurrentScore = 0;
+    }
 }

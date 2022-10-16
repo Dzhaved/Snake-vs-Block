@@ -48,8 +48,7 @@ public class Game : MonoBehaviour
         Snake.SnakeLength = Snake.BaseSnakeLength;       
         _screen =LoseScreen;
         Invoke("ScreenActivate", 1f);
-        Invoke("LoseScreenText", 1f);
-        CurrentScore = 0;
+        Invoke("LoseScreenText", 1f);        
 
     }
 
@@ -107,7 +106,7 @@ public class Game : MonoBehaviour
     {
         Info.SetActive(true);
         BestScoreUI[0].SetActive(false);
-        BestScoreText.text = BestScore.ToString();
+        BestScoreText.text = CurrentScore.ToString();
         BestScoreUI[1].SetActive(true);
     }
 
