@@ -8,7 +8,7 @@ public class Blocks : MonoBehaviour
 {
     public int BlockHealth;
     public TextMeshPro BlockText;
-    public Material[] BlockMaterial;    
+    public Material BlockMaterial;    
     
 
     private Renderer _blockRenderer;
@@ -21,9 +21,8 @@ public class Blocks : MonoBehaviour
         Random random = new Random();
         if(random.Next(0,100)<40) BlockHealth = random.Next(1, 6);
         else    BlockHealth = random.Next(6, 26);      
-        BlockText.text = BlockHealth.ToString();
-        int i = (BlockHealth-1)/2;
-        UpdateMaterial(BlockMaterial[i]);       
+        BlockText.text = BlockHealth.ToString();        
+        UpdateMaterial(BlockMaterial);       
     }
 
 
@@ -32,6 +31,7 @@ public class Blocks : MonoBehaviour
     {
         _blockRenderer=gameObject.GetComponent<Renderer>();
         _blockRenderer.sharedMaterial = BlockMaterial;
+        _blockRenderer.material.SetFloat("_CurrentBlockHealth",BlockHealth);
     }
 
     private void OnCollisionEnter(Collision collision)
