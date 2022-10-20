@@ -42,7 +42,7 @@ public class Blocks : MonoBehaviour
         }        
         Vector3 normal = -collision.GetContact(0).normal.normalized;
         float dot = Vector3.Dot(normal, Vector3.right);        
-        if (Mathf.Abs( dot) > 0.01) return;
+        if (Mathf.Abs( dot) > 0.08) return;
         if (!s.IsHead) return;
         Snake snake = s.Snake;
         snake.Game.CurrentScore++;

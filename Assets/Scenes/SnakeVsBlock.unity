@@ -5688,7 +5688,7 @@ PrefabInstance:
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: Sensitivity
-      value: 50
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
