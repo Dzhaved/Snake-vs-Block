@@ -19,8 +19,8 @@ public class Blocks : MonoBehaviour
     private void Start()
     {
         Random random = new Random();
-        if(random.Next(0,100)<40) BlockHealth = random.Next(1, 6);
-        else    BlockHealth = random.Next(6, 26);      
+        if(random.Next(0,100)<60) BlockHealth = random.Next(1, 9);
+        else    BlockHealth = random.Next(9, 26);      
         BlockText.text = BlockHealth.ToString();        
         UpdateMaterial(BlockMaterial);       
     }

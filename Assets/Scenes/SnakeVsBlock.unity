@@ -5688,12 +5688,12 @@ PrefabInstance:
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: Sensitivity
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8666517589307312679, guid: 2d5e80b9f255533468e6097229a86264,
         type: 3}
       propertyPath: SnakeForwardSpeed
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d5e80b9f255533468e6097229a86264, type: 3}
@@ -6090,7 +6090,7 @@ MonoBehaviour:
   - {fileID: 8628806766958584255, guid: c64467ea1ba4a4240ab7027cb44cdeaf, type: 3}
   StartPlatform: {fileID: 2147726191513418160, guid: 092b17c86444ab041b688623ebd1a2a9,
     type: 3}
-  MinPlatforms: 5
+  MinPlatforms: 10
   MaxPlatforms: 10
   PlatformLength: 60
   FinishPlatform: {fileID: 652642069}
